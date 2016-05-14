@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-baidutts"
+    version="0.0.1">
+
+    <name>baiduTts</name>
+    <description>A cordova plugin, a JS version of baidu TTS SDK</description>
+    <license>MIT</license>
+    <keywords>cordova,baidu,tts</keywords>
+    <repo>https://github.com/iheron/cordova-plugin-baidutts.git</repo>
+    <issue>https://github.com/iheron/cordova-plugin-baidutts/issues</issue>
+
+    <!--require cordova version -->
+    <engines>
+        <engine name="cordova" version=">=3.5.0" />
+    </engines>
+    <!-- js module-->
+    <js-module src="www/baiduTts.js" name="baiduTts">
+        <clobbers target="baiduTts" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BaiduTts">
+                <param name="android-package" value="heron.cordova.plugin.baidutts.BaiduTts"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+        </config-file>
+
+        <source-file src="src/android/BaiduTts.java" target-dir="src/heron/cordova/plugin/baidutts"/>
+        <source-file src="src/android/Keys.java" target-dir="src/heron/cordova/plugin/baidutts" />
+
+        <source-file src="src/android/libs/armeabi/libBDSpeechDecoder_V1.so" target-dir="libs/armeabi"/>
+        <source-file src="src/android/libs/armeabi/libbd_etts.so" target-dir="libs/armeabi"/>
+        <source-file src="src/android/libs/armeabi/libbdtts.so" target-dir="libs/armeabi"/>
+        <source-file src="src/android/libs/armeabi/libgnustl_shared.so" target-dir="libs/armeabi"/>
+
+        <source-file src="src/android/libs/armeabi-v7a/libBDSpeechDecoder_V1.so" target-dir="libs/armeabi-v7a"/>
+        <source-file src="src/android/libs/armeabi-v7a/libbd_etts.so" target-dir="libs/armeabi-v7a"/>
+        <source-file src="src/android/libs/armeabi-v7a/libbdtts.so" target-dir="libs/armeabi-v7a"/>
+        <source-file src="src/android/libs/armeabi-v7a/libgnustl_shared.so" target-dir="libs/armeabi-v7a"/>
+
+        <source-file src="src/android/libs/arm64-v8a/libBDSpeechDecoder_V1.so" target-dir="libs/arm64-v8a"/>
+        <source-file src="src/android/libs/arm64-v8a/libbd_etts.so" target-dir="libs/arm64-v8a"/>
+        <source-file src="src/android/libs/arm64-v8a/libbdtts.so" target-dir="libs/arm64-v8a"/>
+        <source-file src="src/android/libs/arm64-v8a/libgnustl_shared.so" target-dir="libs/arm64-v8a"/>
+
+        <source-file src="src/android/libs/galaxy-v2.0.jar" target-dir="libs/"/>
+        <source-file src="src/android/libs/com.baidu.tts_2.2.6.20160505_a2af8d6_beta.jar" target-dir="libs"/>
+
+        <source-file src="src/android/data/english" target-dir="assets"/>
+        <source-file src="src/android/data/bd_etts_speech_female.dat" target-dir="assets"/>
+        <source-file src="src/android/data/bd_etts_speech_male.dat" target-dir="assets"/>
+        <source-file src="src/android/data/bd_etts_text.dat" target-dir="assets"/>
+    </platform>
+</plugin>

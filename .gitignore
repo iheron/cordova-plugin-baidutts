@@ -1,0 +1,9 @@
+!.gitignore
+.idea/
+node_modules/
+log/*.log
+*.log
+hooks/
+platforms/
+plugins/
+config.xml
