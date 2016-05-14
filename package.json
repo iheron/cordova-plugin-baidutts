@@ -1,0 +1,22 @@
+{
+  "name": "cordova-plugin-baidutts",
+  "version": "0.0.1",
+  "description": "A cordova plugin, a JS version of baidu tts",
+  "cordova": {
+    "id": "cordova-plugin-baidutts",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cordova"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.5.0"
+    }
+  ],
+  "author": "heron",
+  "license": "MIT"
+}
